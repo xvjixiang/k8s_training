@@ -1,0 +1,45 @@
+curl -OL https://k8s.io/examples/pods/config/redis-config
+
+cat <<EOF >./kustomization.yaml
+configMapGenerator:
+- name: example-redis-config
+  files:
+  - redis-config
+EOF
+--add pod resource config to kustomization.yaml
+pods/config/redis-pod.yaml 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis
+spec:
+  containers:
+  - name: redis
+    image: redis:5.0.4
+    command:
+      - redis-server
+      - "/redis-master/redis.conf"
+    env:
+    - name: MASTER
+      value: "true"
+    ports:
+    - containerPort: 6379
+    resources:
+      limits:
+        cpu: "0.1"
+    volumeMounts:
+    - mountPath: /redis-master-data
+      name: data
+    - mountPath: /redis-master
+      name: config
+  volumes:
+    - name: data
+      emptyDir: {}
+    - name: config
+      configMap:
+        name: example-redis-config
+        items:
+        - key: redis-config
+          path: redis.conf
+1
