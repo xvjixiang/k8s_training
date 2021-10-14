@@ -8,6 +8,7 @@ spec:
   - port: 3306
     protocol: TCP
     targetPort: 3306
+    nodePort: 31822
   selector:
     app: mysql
   #clusterIP: None
@@ -44,5 +45,14 @@ spec:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
           claimName: data
-      nodeSelector:
-        database: mysql
+      #nodeSelector:
+      #  database: mysql
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: database
+                operator: In
+                values:
+                - mysql
