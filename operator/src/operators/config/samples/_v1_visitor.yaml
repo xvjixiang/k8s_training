@@ -1,0 +1,6 @@
+apiVersion: my.domain/v1
+kind: Visitor
+metadata:
+  name: visitor-sample
+spec:
+  # Add fields here
