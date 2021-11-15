@@ -6,3 +6,13 @@ export OS=$(uname | awk '{print tolower($0)}')
 export OPERATOR_SDK_DL_URL=https://github.com/operator-framework/operator-sdk/releases/download/v1.14.0
 curl -LO ${OPERATOR_SDK_DL_URL}/operator-sdk_${OS}_${ARCH}
 3. add operator-sdk to .bashrc
+
+4. install a operator with operator-sdk
+https://sdk.operatorframework.io/docs/building-operators/golang/tutorial/
+
+5. export GOPATH=~/usr/u/i516296/Github/hello-operator
+mkdir -p $GOPAH/src/operators
+cd $GOPAH/src/operators
+operator-sdk init hello-operator
+
+6.create crd: operator-sdk create api --version v1 --kind Visitor
