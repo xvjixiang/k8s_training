@@ -1,5 +1,5 @@
 # Build the manager binary
-FROM golang:1.16 as builder
+FROM golang:1.16-alpine as builder
 
 WORKDIR /workspace
 # Copy the Go Modules manifests
@@ -7,7 +7,9 @@ COPY go.mod go.mod
 COPY go.sum go.sum
 # cache deps before building and copying source so that we don't need to re-download as much
 # and so that source changes don't invalidate our downloaded layer
-ENV GOPROXY https://goproxy.io
+#ENV GOPROXY https://goproxy.cn
+ENV GO111MODULE on
+#RUN go env -w GOPROXY=https://goproxy.io,direct && go mod download
 RUN go mod download
 
 # Copy the go source
