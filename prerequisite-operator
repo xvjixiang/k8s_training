@@ -16,3 +16,10 @@ cd $GOPAH/src/operators
 operator-sdk init hello-operator
 
 6.create crd: operator-sdk create api --version v1 --kind Visitor
+
+7. build image: make docker-build
+
+8. push image to docker registry: docker login 
+docker image tag controller:latest xvjixiang/controller:latest
+
+9. install olm: operator-sdk olm install
