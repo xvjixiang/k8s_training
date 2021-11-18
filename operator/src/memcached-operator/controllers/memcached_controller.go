@@ -30,7 +30,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	ctrllog "sigs.k8s.io/controller-runtime/pkg/log"
 
-	cachev1alpha1 "github.com/example/memcached-operator/api/v1alpha1"
+	cachev1alpha1 "https://github.com/xvjixiang/k8s_training/operator/src/memcached-operator/api/v1alpha1"
 )
 
 // MemcachedReconciler reconciles a Memcached object
