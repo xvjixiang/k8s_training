@@ -1,0 +1,9 @@
+domain: example.com
+layout:
+- go.kubebuilder.io/v3
+plugins:
+  manifests.sdk.operatorframework.io/v2: {}
+  scorecard.sdk.operatorframework.io/v2: {}
+projectName: hello-operator
+repo: github.com/xvjixiang/k8s_training/operator/src/hello-operator
+version: "3"
