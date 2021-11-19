@@ -31,8 +31,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	cachev1alpha1 "github.com/example/memcached-operator/api/v1alpha1"
-	"github.com/example/memcached-operator/controllers"
+	cachev1alpha1 "github.com/xvjixiang/k8s_training/operator/src/memcached-operator/api/v1alpha1"
+	"github.com/xvjixiang/k8s_training/operator/src/memcached-operator/controllers"
 	//+kubebuilder:scaffold:imports
 )
 
@@ -71,8 +71,7 @@ func main() {
 		Port:                   9443,
 		HealthProbeBindAddress: probeAddr,
 		LeaderElection:         enableLeaderElection,
-		LeaderElectionID:       "86f835c3.example.com",
-		Namespace:              "",
+		LeaderElectionID:       "84e01a4b.example.com",
 	})
 	if err != nil {
 		setupLog.Error(err, "unable to start manager")
