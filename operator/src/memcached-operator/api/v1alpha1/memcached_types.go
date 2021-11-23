@@ -47,6 +47,7 @@ type MemcachedStatus struct {
 
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
+// +kubebuilder:printcolumn:name="Size",type="integer",JSONPath=".spec.size"
 
 // Memcached is the Schema for the memcacheds API
 type Memcached struct {

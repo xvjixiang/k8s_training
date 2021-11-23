@@ -72,7 +72,6 @@ func main() {
 		HealthProbeBindAddress: probeAddr,
 		LeaderElection:         enableLeaderElection,
 		LeaderElectionID:       "84e01a4b.example.com",
-		Namespace:              "",
 	})
 	if err != nil {
 		setupLog.Error(err, "unable to start manager")
