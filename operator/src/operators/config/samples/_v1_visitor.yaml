@@ -1,8 +1,0 @@
-apiVersion: my.domain/v1
-kind: Visitor
-metadata:
-  name: visitor-sample
-spec:
-  # Add fields here
-  size: 3
-  image: paulbouwer/hello-kubernetes:1.8
