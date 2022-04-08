@@ -1,0 +1,2 @@
+k taint nodes lsvxc0049 bubba=value:PreferNoSchedule
+remove taint: k taint nodes lsvxc0049 bubba=value:PreferNoSchedule-

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: shell-demo
+  name: shell-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: shell-demo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: shell-demo
+    spec:
+      containers:
+      - image: nginx
+        name: shell-demo
+        resources: {}
+        # env:
+        # - name: ilike
+        #   valueFrom:
+        #     configMapKeyRef:
+        #       name: colors
+        #       key: favorite
+        envFrom:
+        - configMapRef:
+            name: colors
